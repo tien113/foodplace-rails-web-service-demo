@@ -26,7 +26,7 @@ private
         h(order.order_done),
         link_to('Show', order),
         link_to('Edit', edit_order_path(order)),
-        link_to('Destroy', order, method: :delete, confirm: "Are you sure?")
+        link_to('Destroy', order, method: :delete, :data => { :confirm => 'Are you sure?' })
       ]
     end
   end
