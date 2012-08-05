@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Name:</b>
+  <%= @place.place_name %>
+</p>
+<p>
+  <b>Latitude:</b>
+  <%= @place.place_lat %>
+</p>
+<p>
+  <b>Longitude:</b>
+  <%= @place.place_log %>
+</p>
+<p>
+  <b>Address:</b>
+  <%= @place.place_address %>
+</p>
+<p>
+  <b>Opening Time 1:</b>
+  <%= @place.place_opening_time_1 %>
+</p>
+<p>
+  <b>Opening Time 2:</b>
+  <%= @place.place_opening_time_2 %>
+</p>
+<p>
+  <b>Opening Time 3:</b>
+  <%= @place.place_opening_time_3 %>
+</p>
+<p>
+  <b>Opening Time 4:</b>
+  <%= @place.place_opening_time_4 %>
+</p>
+<p>
+  <b>Phone Number:</b>
+  <%= @place.place_phone_number %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @place.place_email %>
+</p>
+<p>
+  <b>Image Url:</b>
+  <%= @place.place_image_url %>
+</p>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<% if !current_user %>
+<h1>Sign In</h1>
+
+<%= form_tag sessions_path do %>
+  <div class="field">
+    Email<br />
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="field">
+    Password<br />
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions">
+	<%= submit_tag "Sign In" %>
+  </div>
+<% end %>
+<% end %>
+
+<br />
+
+<% if current_user %>
+<%= link_to "List Orders", orders_path %><br />
+<% end %>
+
+<%= link_to "List Foods", foods_path %><br />
+<%= link_to "List Places", places_path %>

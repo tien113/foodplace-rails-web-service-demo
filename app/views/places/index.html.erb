@@ -1,0 +1,60 @@
+<h1>Listing Places</h1>
+
+<table id="newspaper-b">
+<thead>
+	<tr>
+		<th>Name</th>
+		<th>Latitude</th>
+		<th>Longitude</th>
+		<th>Address</th>
+		<th>Opening Time 1</th>
+		<th>Opening Time 2</th>
+		<th>Opening Time 3</th>
+		<th>Opening Time 4</th>
+		<th>Phone Number</th>
+		<th>Email</th>
+		<th>Image Url</th>
+		<% if current_user %>
+			<th></th>
+			<th></th>
+			<th></th>	
+		<% end %>	
+	</tr>
+</thead>
+<tfoot>
+<tr>
+	<% if current_user %>
+		<td colspan="14"><em>The above data were fictional and made up, please do not sue me</em></td>
+	<% else %>
+		<td colspan="11"><em>The above data were fictional and made up, please do not sue me</em></td>
+	<% end %>
+</tr>
+</tfoot>
+
+<% @places.each do |p| %>
+<tr>
+	<td><%= p.place_name %></td>
+	<td><%= p.place_lat %></td>
+	<td><%= p.place_log %></td>
+	<td><%= truncate(p.place_address, :length => 15) %></td>
+	<td><%= p.place_opening_time_1 %></td>
+	<td><%= p.place_opening_time_2 %></td>
+	<td><%= p.place_opening_time_3 %></td>
+	<td><%= p.place_opening_time_4 %></td>
+	<td><%= truncate(p.place_phone_number, :length => 8) %></td>
+	<td><%= truncate(p.place_email, :length => 15) %></td>
+	<td><%= truncate(p.place_image_url, :length => 10) %></td>
+	<% if current_user %>
+		<td><%= link_to 'Show', p %></td>
+	    <td><%= link_to 'Edit', edit_place_path(p) %></td>
+	    <td><%= link_to 'Destroy', p, confirm: 'Are you sure?', method: :delete %></td>
+	<% end %>
+</tr>
+<% end %>
+</table>
+
+<br />
+
+<% if current_user %>
+<%= link_to 'New Place', new_place_path %>
+<% end %>

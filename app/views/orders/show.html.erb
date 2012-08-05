@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>UUID:</b>
+  <%= @order.order_uuid %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= number_to_currency(@order.order_total, :unit => "€") %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <b>Done:</b>
+  <%= @order.order_done %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
