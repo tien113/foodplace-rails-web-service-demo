@@ -24,9 +24,7 @@ module SessionsHelper
   
   private
     def signed_in_user
-      redirect_to signin_url, notice: "You need to sign in first." 
-      unless signed_in?
-      end
+      redirect_to signin_url, notice: "You need to sign in first." unless signed_in?
     end
   
 end
