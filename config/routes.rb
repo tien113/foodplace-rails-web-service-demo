@@ -11,6 +11,6 @@ Foodplace::Application.routes.draw do
   resources :foods
   resources :places
   resources :orders
-  resources :order_details
+  resources :order_details, only: [:new]
 
 end
