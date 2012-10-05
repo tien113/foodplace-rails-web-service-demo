@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'bootstrap-sass', '2.1.0.0'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.1.2'
+gem "will_paginate", '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development, :test do
   gem 'sqlite3','1.3.6'
@@ -18,8 +21,6 @@ group :assets do
 end
 
 gem 'jquery-rails', '2.1.3'
-
-gem "will_paginate", '3.0.3'
 
 group :test do
   gem 'capybara', '1.1.2'
