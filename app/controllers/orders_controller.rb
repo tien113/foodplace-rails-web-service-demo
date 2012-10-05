@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   
-  before_filter :signed_in_user, :except => :create
+  before_filter :signed_in_user, except: [:create]
   
   # GET /orders
   # GET /orders.json

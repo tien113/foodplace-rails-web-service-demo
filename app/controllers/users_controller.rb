@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   
   before_filter :signed_in_user
-  before_filter :correct_user
+  before_filter :correct_user, except: [:index]
+  
+  def index
+    @users = User.all
+  end
   
   def show
     @user = User.find(params[:id])
