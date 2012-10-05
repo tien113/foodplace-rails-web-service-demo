@@ -1,12 +1,13 @@
 Foodplace::Application.routes.draw do
   
-  get "sign_up" => "users#new", :as => "sign_up"
-  get "sign_in" => "sessions#new", :as => "sign_in"
-  get 'sign_out' => "sessions#destroy", :as => "sign_out"
-
+  match '/',        to: 'sessions#new'
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy'
+  
   root :to => 'sessions#new'
   resources :users
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
   resources :foods
   resources :places
   resources :orders

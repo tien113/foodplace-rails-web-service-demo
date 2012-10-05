@@ -33,11 +33,11 @@
 	    <td><%= truncate(f.food_image_url, :length => 10) %></td>
 		<td><%= truncate(f.food_ingredient, :length => 20) %></td>
 	    <td><%= f.place.place_name %></td>
-	<% if current_user %>
-	    <td><%= link_to 'Show', f %></td>
-	    <td><%= link_to 'Edit', edit_food_path(f) %></td>
-	    <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %></td>
-	<% end %>
+		<% if current_user %>
+		    <td><%= link_to 'Show', f %></td>
+		    <td><%= link_to 'Edit', edit_food_path(f) %></td>
+		    <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %></td>
+		<% end %>
 	  </tr>	
 	<% end %>
 </table>
@@ -45,5 +45,5 @@
 <br />
 
 <% if current_user %>
-<%= link_to 'New Food', new_food_path %>
+	<%= link_to 'New Food', new_food_path %>
 <% end %>
