@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513113520) do
+ActiveRecord::Schema.define(:version => 20121005142625) do
 
   create_table "foods", :force => true do |t|
     t.string   "food_name"
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(:version => 20120513113520) do
 
   create_table "orders", :force => true do |t|
     t.string   "order_uuid"
-    t.string   "order_total"
+    t.decimal  "order_total", :precision => 7, :scale => 2
     t.string   "order_date"
     t.boolean  "order_done"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "places", :force => true do |t|
@@ -68,5 +68,7 @@ ActiveRecord::Schema.define(:version => 20120513113520) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
