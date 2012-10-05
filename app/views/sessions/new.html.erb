@@ -1,22 +1,22 @@
-<% provide(:title, 'Sign in') %>
-<p id="notice"><%= notice %></p>
 <% if !current_user %>
-<h1>Sign in</h1>
+	<% provide(:title, 'Sign in') %>
+	
+	<h1>Sign in</h1>
 
-<%= form_tag sessions_path do %>
-  <div class="field">
-    Email<br />
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
-    Password<br />
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-	<%= submit_tag "Sign In" %>
-  </div>
+	<div class="row">
+		<div class="span6 offset3">
+			<%= form_for(:session, url: sessions_path) do |f| %>
+				<%= f.label :email %>
+			    <%= f.text_field :email %>
+		
+				<%= f.label :password %> 
+			    <%= f.password_field :password %>
+		 	    
+				<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+<% else%>
+	<% provide(:title, 'Home') %>
+	<h1>Welcome to Web service</h1>
 <% end %>
-<% end %>
-
-<br />
-

@@ -47,7 +47,10 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save # save the place
-        format.html { redirect_to @place, notice: 'Place was successfully created.' } # redirect to show page if successfully
+        format.html { 
+          redirect_to @place 
+          flash[:success] = "Place was successfully created." } # redirect to show page if successfully
+        
         format.json { render json: @place, status: :created, location: @place }
       else
         format.html { render action: "new" } # render new page again if unsuccessfully
@@ -63,7 +66,10 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.update_attributes(params[:place]) # update place with place data
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+        format.html { 
+          redirect_to @place
+          flash[:success] = "Place was successfully updated." }
+        
         format.json { head :no_content }
       else
         format.html { render action: "edit" } # render edit page if unsuccessfully

@@ -1,30 +1,21 @@
-<p id="notice"><%= notice %></p>
-<h1>Sign Up</h1>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
 
-<%= form_for @user do |f| %>
-<% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
-  <div class="field">
-    Email<br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    Password<br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    Password Confirmation<br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-	<%= f.submit %>
-   </div>
-<% end %>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for @user do |f| %>
+		    <%= render 'shared/error_messages' %>
+			
+			<%= f.label :email %>
+		    <%= f.text_field :email %>
+			
+			<%= f.label :password %>
+		    <%= f.password_field :password %>
+			
+			<%= f.label :password_confirmation, "Confirmation" %>
+		    <%= f.password_field :password_confirmation %>
+			
+			<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>
