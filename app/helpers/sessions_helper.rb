@@ -10,7 +10,11 @@ module SessionsHelper
   end
   
   def current_user=(user)
-      @current_user = user
+    @current_user = user
+  end
+  
+  def current_user?(user)
+    user == current_user 
   end
   
   def current_user
@@ -25,6 +29,11 @@ module SessionsHelper
   private
     def signed_in_user
       redirect_to signin_url, notice: "You need to sign in first." unless signed_in?
+    end
+    
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to root_url unless current_user?(@user)
     end
   
 end
