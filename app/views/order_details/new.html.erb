@@ -1,3 +1,5 @@
+<% provide(:title, @order.order_uuid) %>
+
 <h2>Listing Order for</h2>
 <h2><%= @order.order_uuid %></h2>
 <h2>(<%= number_to_currency(@order.order_total, :unit => "€" )%>)</h2>

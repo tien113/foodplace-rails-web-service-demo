@@ -8,13 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= link_to "Home", sign_in_path %><br/>
-	<% if current_user %>
-		Sign In as <%= current_user.email %><br />
-    	<%= link_to "Sign Out", sign_out_path %>
-    <% end %>
+	<%= render 'layouts/header' %>
+<div>
+	<%= yield %>
+</div>	
 
-<%= yield %>
 
 </body>
 </html>

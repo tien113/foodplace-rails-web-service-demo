@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
-  
   attr_accessible :email, :password, :password_confirmation
   has_secure_password
-  validates_presence_of :password, :on => :create
-  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
-                              :message => "Invalid email"
-                              
+  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, 
+                      format: { with: VALID_EMAIL_REGEX },
+                      uniqueness: { case_sensitive: false }
+  validates :password, presence: true, length: { minimum: 6 }         
 end

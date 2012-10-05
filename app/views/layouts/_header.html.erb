@@ -1,0 +1,5 @@
+<%= link_to "Home", sign_in_path %><br/>
+<% if current_user %>
+	Sign in as <%= current_user.email %><br />
+	<%= link_to "Sign out", sign_out_path %>
+<% end %>
