@@ -15,22 +15,13 @@
 		<th>Phone Number</th>
 		<th>Email</th>
 		<th>Image Url</th>
-		<% if current_user %>
+		<% if signed_in? %>
 			<th></th>
 			<th></th>
 			<th></th>	
 		<% end %>	
 	</tr>
 </thead>
-<tfoot>
-<tr>
-	<% if current_user %>
-		<td colspan="14"><em>The above data were fictional and made up, please do not sue me</em></td>
-	<% else %>
-		<td colspan="11"><em>The above data were fictional and made up, please do not sue me</em></td>
-	<% end %>
-</tr>
-</tfoot>
 
 <% @places.each do |p| %>
 <tr>
@@ -45,7 +36,7 @@
 	<td><%= truncate(p.place_phone_number, :length => 8) %></td>
 	<td><%= truncate(p.place_email, :length => 15) %></td>
 	<td><%= truncate(p.place_image_url, :length => 10) %></td>
-	<% if current_user %>
+	<% if signed_in? %>
 		<td><%= link_to 'Show', p %></td>
 	    <td><%= link_to 'Edit', edit_place_path(p) %></td>
 	    <td><%= link_to 'Destroy', p, confirm: 'Are you sure?', method: :delete %></td>
@@ -56,6 +47,6 @@
 
 <br />
 
-<% if current_user %>
+<% if signed_in? %>
 	<%= link_to 'New Place', new_place_path %>
 <% end %>

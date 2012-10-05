@@ -7,9 +7,9 @@
 					<li><%= link_to "Home", root_path %></li>
 					<li><%= link_to "List Foods", foods_path %></li>
 					<li><%= link_to "List Places", places_path %></li>
-				<% if current_user %>
+				<% if signed_in? %>
 					<li><%= link_to "List Orders", orders_path %></li>
-					<li><%= link_to "Sign out", signout_path %></li>
+					<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
 				<% else %>
 					<li><%= link_to "Sign in", signin_path %></li>
 				<% end %>

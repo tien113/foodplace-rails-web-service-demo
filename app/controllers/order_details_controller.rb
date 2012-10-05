@@ -1,6 +1,6 @@
 class OrderDetailsController < ApplicationController
   
-  before_filter :signed_in?
+  before_filter :signed_in_user
   
   # GET /order_details/new
   # GET /order_details/new.json

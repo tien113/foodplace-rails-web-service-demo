@@ -1,4 +1,4 @@
-<% if !current_user %>
+<% if !signed_in? %>
 	<% provide(:title, 'Sign in') %>
 	
 	<h1>Sign in</h1>

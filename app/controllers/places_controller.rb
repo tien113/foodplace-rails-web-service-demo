@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   
-  before_filter :signed_in?, :except => :index # set authentication all methods on this controller except index method 
+  before_filter :signed_in_user, :except => :index # set authentication all methods on this controller except index method 
   
   # GET /places
   # GET /places.json

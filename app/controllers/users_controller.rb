@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :signed_in?
+  before_filter :signed_in_user
   
   def new
     @user = User.new
@@ -15,5 +15,4 @@ class UsersController < ApplicationController
       render "new"
     end
   end
-  
 end

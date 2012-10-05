@@ -16,15 +16,6 @@
 	<% end %>
 	  </tr>
 	</thead>
-	<tfoot>
-	<tr>
-		<% if current_user %>
-			<td colspan="8"><em>The above data were fictional and made up, please do not sue me</em></td>
-		<% else %>
-			<td colspan="5"><em>The above data were fictional and made up, please do not sue me</em></td>
-		<% end %>
-	</tr>
-	</tfoot>
 	
 	<% @foods.each do |f| %>
 	  <tr>
@@ -33,7 +24,7 @@
 	    <td><%= truncate(f.food_image_url, :length => 10) %></td>
 		<td><%= truncate(f.food_ingredient, :length => 20) %></td>
 	    <td><%= f.place.place_name %></td>
-		<% if current_user %>
+		<% if signed_in? %>
 		    <td><%= link_to 'Show', f %></td>
 		    <td><%= link_to 'Edit', edit_food_path(f) %></td>
 		    <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %></td>
@@ -44,6 +35,6 @@
 
 <br />
 
-<% if current_user %>
+<% if signed_in? %>
 	<%= link_to 'New Food', new_food_path %>
 <% end %>
