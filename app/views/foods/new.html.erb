@@ -19,7 +19,7 @@
 		    <%= f.text_area :food_ingredient, rows: 5 %>
 			
 		    <%= f.label :food_place, "Place" %>
-			<%= collection_select(:food, :place_id, Place.all, :id, :place_name) %>
+			<%= collection_select(:food, :place_id, Place.all, :id, :place_name, { prompt: false }, { id: 'collection-select' }) %>
 			
 		    <%= f.submit "Create new food", class: "btn btn-large btn-primary" %>
 		<% end %>

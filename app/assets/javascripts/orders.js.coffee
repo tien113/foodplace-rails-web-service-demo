@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
         $('#orders').dataTable
-          sPaginationType: "full_numbers"
-          bJQueryUI: true
+          sPaginationType: "bootstrap"
+          bJQueryUI: false
           bProcessing: true
           bServerSide: true
           sAjaxSource: $('#orders').data('source')

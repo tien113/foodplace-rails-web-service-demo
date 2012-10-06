@@ -93,6 +93,10 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
 }
 
+#collection-select {
+	width: 70%;
+}
+
 #checkbox {
 	width: 100%;
 	margin-bottom: 15px;
@@ -160,3 +164,6 @@ aside {
 dt, dd {
 	margin-bottom: 15px;	
 }
+
+/* datatables */
+

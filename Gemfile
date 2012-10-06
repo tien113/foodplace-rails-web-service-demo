@@ -17,10 +17,10 @@ group :assets do
   gem 'sass-rails', '3.2.5'
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.3.0'
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails', '2.0.2'
 end
 
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-rails', '2.1.3'
 
 group :test do
