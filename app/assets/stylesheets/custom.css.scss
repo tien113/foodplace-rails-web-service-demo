@@ -35,6 +35,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+
 /* header */
 
 #logo {
@@ -144,4 +148,10 @@ aside {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+/* horizontal description */
+
+dt, dd {
+	margin-bottom: 15px;	
 }

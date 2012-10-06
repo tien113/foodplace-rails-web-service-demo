@@ -1,14 +1,14 @@
 <% provide(:title, 'Listing Foods') %>
 <h1>Listing Foods</h1>
 
-<table id="newspaper-b" >
+<table class="table table-hover" >
 	<thead>
 	  <tr>
-	    <th scope="col">Name</th>
-	    <th scope="col">Price</th>
-	    <th scope="col">Image Url</th>
-	    <th scope="col">Ingredient</th>
-	    <th scope="col">Place Name</th>
+	    <th>Name</th>
+	    <th>Price</th>
+	    <th>Image url</th>
+	    <th>Ingredient</th>
+	    <th>Place</th>
 	<% if current_user %>
 	    <th></th>
 	    <th></th>
@@ -16,7 +16,7 @@
 	<% end %>
 	  </tr>
 	</thead>
-	
+	<tbody>
 	<% @foods.each do |f| %>
 	  <tr>
 	    <td><%= truncate(f.food_name, :length => 20) %></td>
@@ -24,17 +24,16 @@
 	    <td><%= truncate(f.food_image_url, :length => 10) %></td>
 		<td><%= truncate(f.food_ingredient, :length => 20) %></td>
 	    <td><%= f.place.place_name %></td>
-		<% if signed_in? %>
-		    <td><%= link_to 'Show', f %></td>
-		    <td><%= link_to 'Edit', edit_food_path(f) %></td>
-		    <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %></td>
-		<% end %>
-	  </tr>	
-	<% end %>
+	 <% if signed_in? %>
+	    <td><%= link_to 'Show', f, class: "btn btn-small btn-info" %></td>
+	    <td><%= link_to 'Edit', edit_food_path(f), class: "btn btn-small btn btn-warning" %></td>
+	    <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete, class: "btn btn-small btn-danger" %></td>
+	 <% end %>
+	 <% end %>
+	   </tr>	
+	 </tbody>
 </table>
 
-<br />
-
 <% if signed_in? %>
-	<%= link_to 'New Food', new_food_path %>
+	<%= link_to 'Create new food', new_food_path, class: "btn btn-large btn-primary" %>
 <% end %>

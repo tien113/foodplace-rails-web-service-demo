@@ -1,25 +1,26 @@
 <% provide(:title, @food.food_name) %>
-<p id="notice"><%= notice %></p>
-<p>
-  <b>Name:</b>
-  <%= @food.food_name %>
-</p>
-<p>
-  <b>Price:</b>
-  <%= @food.food_price %>
-</p>
-<p>
-  <b>Image Url:</b>
-  <%= @food.food_image_url %>
-</p>
-<p>
-  <b>Ingredient:</b>
-  <%= @food.food_ingredient %>
-</p>
-<p>
-  <b>Place:</b>
-  <%= @food.place.place_name %>
-</p>
+<h2><%= @food.food_name %></h2>
 
-<%= link_to 'Edit', edit_food_path(@food) %> |
-<%= link_to 'Back', foods_path %>
+<div class="row">
+	<div class="span6 offset3">
+		<dl class="dl-horizontal">
+			<dt>Name</dt>
+			<dd><%= @food.food_name %></dd>
+			
+			<dt>Price</dt>
+			<dd><%= number_to_currency(@food.food_price, :unit => "€" ) %></dd>
+			
+			<dt>Image url</dt>
+			<dd><%= @food.food_image_url %></dd>
+			
+			<dt>Ingredient</dt>
+			<dd><%= @food.food_ingredient %></dd>
+			
+			<dt>Place</dt>
+			<dd><%= @food.place.place_name %></dd>
+		</dl>
+		
+	<%= link_to 'Edit', edit_food_path(@food), class: "btn btn-primary" %>
+	</div>
+</div>
+
