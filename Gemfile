@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem "will_paginate", '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem "validates_phone_number", '2.0.0'
 
 group :development, :test do
   gem 'sqlite3','1.3.6'
