@@ -17,22 +17,12 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @place = Place.find(params[:id]) # find the place with id
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @place } # generate the data to json
-    end
   end
   
   # GET /places/new
   # GET /places/new.json
   def new
     @place = Place.new # create new place 
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @place }
-    end
   end
 
   # GET /places/1/edit
@@ -44,18 +34,12 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.new(params[:place]) # create the place with place data
-
-    respond_to do |format|
-      if @place.save # save the place
-        format.html { 
-          redirect_to @place 
-          flash[:success] = "Place was successfully created." } # redirect to show page if successfully
-        
-        format.json { render json: @place, status: :created, location: @place }
-      else
-        format.html { render action: "new" } # render new page again if unsuccessfully
-        format.json { render json: @place.errors, status: :unprocessable_entity }
-      end
+    
+    if @place.save # save the place
+      redirect_to @place 
+      flash[:success] = "Place was successfully created."
+    else
+      render action: "new" 
     end
   end
 
@@ -64,30 +48,19 @@ class PlacesController < ApplicationController
   def update
     @place = Place.find(params[:id]) # update place with id
 
-    respond_to do |format|
-      if @place.update_attributes(params[:place]) # update place with place data
-        format.html { 
-          redirect_to @place
-          flash[:success] = "Place was successfully updated." }
-        
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" } # render edit page if unsuccessfully
-        format.json { render json: @place.errors, status: :unprocessable_entity }
-      end
+    if @place.update_attributes(params[:place]) # update place with place data
+      redirect_to @place
+      flash[:success] = "Place was successfully updated."
+    else
+      render action: "edit" 
     end
   end
 
   # DELETE /places/1
   # DELETE /places/1.json
   def destroy
-    @place = Place.find(params[:id]) # find place with id
-    @place.destroy # destroy place 
-
-    respond_to do |format|
-      format.html { redirect_to places_url }
-      format.json { head :no_content }
-    end
+    @place = Place.find(params[:id]).destroy
+    flash[:success] = "Place destroyed."
+    redirect_to places_url
   end
-  
 end

@@ -52,8 +52,8 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id]) # find food with id
 
     if @food.update_attributes(params[:food])
-        redirect_to @food
-        flash[:success] = "Food was successfully updated." 
+      redirect_to @food
+      flash[:success] = "Food was successfully updated." 
     else 
       render action: "edit"
     end
