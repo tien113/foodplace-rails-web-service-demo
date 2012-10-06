@@ -1,25 +1,22 @@
 <% provide(:title, @order.order_uuid) %>
-<p id="notice"><%= notice %></p>
+<h2><%= @order.order_uuid %></h2>
 
-<p>
-  <b>UUID:</b>
-  <%= @order.order_uuid %>
-</p>
-
-<p>
-  <b>Total:</b>
-  <%= number_to_currency(@order.order_total, :unit => "€") %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @order.order_date %>
-</p>
-
-<p>
-  <b>Done:</b>
-  <%= @order.order_done %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="row">
+	<div class="span6 offset3">
+		<dl class="dl-horizontal">
+			<dt>UUID</dt>
+			<dd><%= @order.order_uuid %></dd>
+			
+			<dt>Total</dt>
+			<dd><%= number_to_currency(@order.order_total, :unit => "€" ) %></dd>
+			
+			<dt>Date</dt>
+			<dd><%= @order.order_date %></dd>
+			
+			<dt>Done</dt>
+			<dd><%= check_box_tag '', '', @order.order_done, :disabled => true %></dd>
+		</dl>
+		
+	<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
+	</div>
+</div>

@@ -20,13 +20,13 @@ private
   def data
     orders.map do |order|
       [
-        link_to(order.order_uuid, :controller => :order_details, :action => :new, :id => order.id),
-        number_to_currency(order.order_total, :unit => "€"),
+        link_to(order.order_uuid, controller: :order_details, action: :new, id: order.id),
+        number_to_currency(order.order_total, unit: "€"),
         h(order.order_date),
         h(order.order_done),
         link_to('Show', order),
         link_to('Edit', edit_order_path(order)),
-        link_to('Destroy', order, method: :delete, :data => { :confirm => 'Are you sure?' })
+        link_to('Destroy', order, method: :delete, data: { confirm: 'Are you sure?' })
       ]
     end
   end
