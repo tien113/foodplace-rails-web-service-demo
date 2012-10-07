@@ -36,9 +36,6 @@ module SessionsHelper
   end
   
   private
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
-    end
     
     def signed_in_user
       unless signed_in? 
