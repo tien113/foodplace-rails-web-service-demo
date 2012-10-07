@@ -8,7 +8,9 @@ jQuery ->
           bProcessing: true
           bServerSide: true
           sAjaxSource: $('#orders').data('source')
-		 
- 		$.extend true, $.fn.dataTable.defaults,
+          aoColumnDefs: [bSortable: false, aTargets: [4, 5, 6]]
+          aaSorting: [[2, "desc"]]
+		  
+		 $.extend true, $.fn.dataTable.defaults,
  		  oLanguage:
  		    sLengthMenu: "_MENU_ records per page"
