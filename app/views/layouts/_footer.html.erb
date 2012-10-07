@@ -2,6 +2,8 @@
 	<small>
 		<% if current_user %>
 			Sign in as <%= current_user.email %>
+		<% else %>
+			Guest
 		<% end %>
 	</small>
 	<nav>
