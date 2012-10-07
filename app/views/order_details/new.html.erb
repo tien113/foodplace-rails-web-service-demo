@@ -1,36 +1,32 @@
 <% provide(:title, @order.order_uuid) %>
 
-<h2>Listing Order for</h2>
-<h2><%= @order.order_uuid %></h2>
-<h2>(<%= number_to_currency(@order.order_total, :unit => "€" )%>)</h2>
+<h2>Order</h2>
+<h3><%= @order.order_uuid %> (<%= number_to_currency(@order.order_total, :unit => "€" )%>)</h3>
 
-<table id="rounded-corner" >
-<thead>
-  <tr>
-    <th scope="col" class="rounded-company">Name</th>
-	<th>Count</th>
-    <th>Price</th>
-    <th scope="col" class="rounded-q4">Place</th>
-  </tr>
-</thead>
-<tfoot>
-<tr>
-	<td colspan="3" class="rounded-foot-left"><em>The above data were fictional and made up, please do not sue me</em></td>
-	<td class="rounded-foot-right">&nbsp;</td>
-</tr>
-</tfoot>
+<div class="row-fluid">
+	<div class="span8 offset2">
+		<table class="table table-hover table-bordered" >
+		<thead>
+		  <tr>
+		    <th>Name</th>
+			<th>Count</th>
+		    <th>Price</th>
+		    <th>Place</th>
+		  </tr>
+		</thead>
+		<% @order.order_details.each do |order_detail| %>
+		<tbody>
+		  <tr>
+		    <td><%= order_detail.food_name %></td>
+		    <td>x<%= order_detail.food_count %></td>
+		    <td><%= number_to_currency(order_detail.food_price, :unit => "€") %></td>
+		    <td><%= order_detail.food_place %></td>
+		  </tr>
+		</tbody>
+		<% end %>
+		</table>
 
-<% @order.order_details.each do |order_detail| %>
-<tbody>
-  <tr>
-    <td><%= order_detail.food_name %></td>
-    <td>x<%= order_detail.food_count %></td>
-    <td><%= number_to_currency(order_detail.food_price, :unit => "€") %></td>
-    <td><%= order_detail.food_place %></td>
-  </tr>
-</tbody>
-<% end %>
-</table>
+		<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
+	</div>
+</div>
 
-<%= link_to 'Edit', edit_order_path(@order) %> | 
-<%= link_to 'Back', orders_path %>
