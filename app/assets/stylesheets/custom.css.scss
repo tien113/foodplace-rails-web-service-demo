@@ -174,8 +174,23 @@ dt, dd {
 
 /* datatables */
 
+.dataTables_length label {
+	float: left;
+	text-align: left;
+	width: 190px;
+}
+
+div.dataTables_length select {
+	width: 75px;
+}
+
+.dataTables_filter label {
+	float: right;
+	width: 254px;
+}
+
 .dataTables_filter input {
-	width: 206px;
+	width: 186px;
 }
 
 /* fix first column */
