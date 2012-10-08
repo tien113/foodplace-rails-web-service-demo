@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.json { render json: @order }
+        format.json { render json: @order, status: :created }
       end
     end
   end
