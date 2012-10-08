@@ -4,41 +4,7 @@
 <div class="row">
 	<div class="span6 offset3">
 		<%= form_for(@place) do |f| %>
-		<%= render 'shared/error_place_messages' %>
-		
-			<%= f.label :place_name, "Name" %>
-		    <%= f.text_field :place_name %>
-			
-		    <%= f.label :place_lat, "Latitude" %>
-		    <%= f.text_field :place_lat %>
-		    
-			<%= f.label :place_log, "Longitude" %>
-		    <%= f.text_field :place_log %>
-
-			<%= f.label :place_address, "Address" %>
-		    <%= f.text_field :place_address %>
-
-			<%= f.label :place_opening_time_1, "Opening time 1" %>
-		    <%= f.text_field :place_opening_time_1 %>
-
-			<%= f.label :place_opening_time_2, "Opening time 2" %>
-		    <%= f.text_field :place_opening_time_2 %>
-
-			<%= f.label :place_opening_time_3, "Opening time 3" %>
-		    <%= f.text_field :place_opening_time_3 %>
-
-			<%= f.label :place_opening_time_4, "Opening time 4" %>
-		    <%= f.text_field :place_opening_time_4 %>
-			
-			<%= f.label :place_phone_number, "Phone number" %>
-		    <%= f.text_field :place_phone_number %>
-			
-			<%= f.label :place_email, "Email" %>
-		    <%= f.text_field :place_email %>
-			
-			<%= f.label :place_image_url, "Image url" %>
-		    <%= f.text_field :place_image_url %>
-			
+			<%=  render 'fields', f: f %>
 		    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
 		<% end %>
 	</div>

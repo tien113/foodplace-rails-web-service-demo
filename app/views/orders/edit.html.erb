@@ -4,20 +4,7 @@
 <div class="row">
 	<div class="span6 offset3">
 		<%= form_for(@order) do |f| %>
-			<%= render 'shared/error_order_messages' %>
-		
-			<%= f.label :order_uuid, "UUID" %>
-		    <%= f.text_field :order_uuid %>
-			
-		    <%= f.label :order_total, "Total" %>
-		    <%= f.text_field :order_total %>
-		    
-			<%= f.label :order_date, "Date" %>
-		    <%= f.text_field :order_date %>
-		   
-		    <%= f.label :order_done, "Done" %>
-		    <%= f.check_box :order_done, id: "checkbox" %>
-			
+			<%= render 'fields', f: f %>
 		    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
 		<% end %>
 	</div>

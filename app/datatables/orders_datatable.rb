@@ -1,6 +1,6 @@
 # encoding: utf-8
 class OrdersDatatable
-  delegate :params, :h, :link_to, :edit_order_path, :number_to_currency , :check_box_tag, to: :@view
+  delegate :params, :h, :link_to, :edit_order_path, :number_to_currency, :check_box_tag, to: :@view
   
   def initialize(view)
     @view = view
@@ -20,7 +20,7 @@ private
   def data
     orders.map do |order|
       [
-        link_to(order.order_uuid, { controller: :order_details, action: :new, id: order.id }, class: "btn btn-success"),
+        link_to(order.order_uuid, { controller: :order_details, action: :index, id: order.id }, class: "btn btn-success"),
         number_to_currency(order.order_total, unit: "€"),
         h(order.order_date),
         check_box_tag('', '', order.order_done, disabled: true),
