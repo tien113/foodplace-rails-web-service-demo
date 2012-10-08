@@ -20,7 +20,7 @@ private
   def data
     orders.map do |order|
       [
-        link_to(order.order_uuid, { controller: :order_details, action: :index, id: order.id }, class: "btn btn-success"),
+        link_to(order.order_uuid, { controller: :order_details, action: :show, id: order.id }, class: "btn btn-success"),
         number_to_currency(order.order_total, unit: "€"),
         h(order.order_date),
         check_box_tag('', '', order.order_done, disabled: true),
