@@ -1,0 +1,32 @@
+<% provide(:title, @order.order_uuid) %>
+
+<h2>Order</h2>
+<h3><%= @order.order_uuid %> (<%= number_to_currency(@order.order_total, :unit => "€" )%>)</h3>
+
+<div class="row">
+	<div class="span8 offset2">
+		<table class="table table-hover table-bordered" >
+		<thead>
+		  <tr>
+		    <th>Name</th>
+			<th>Count</th>
+		    <th>Price</th>
+		    <th>Place</th>
+		  </tr>
+		</thead>
+		<% @order.order_details.each do |order_detail| %>
+		<tbody>
+		  <tr>
+		    <td><%= order_detail.food_name %></td>
+		    <td>x<%= order_detail.food_count %></td>
+		    <td><%= number_to_currency(order_detail.food_price, :unit => "€") %></td>
+		    <td><%= order_detail.food_place %></td>
+		  </tr>
+		</tbody>
+		<% end %>
+		</table>
+
+		<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
+	</div>
+</div>
+
