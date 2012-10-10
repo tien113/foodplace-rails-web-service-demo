@@ -7,5 +7,6 @@ class Food < ActiveRecord::Base
   validates :food_price, numericality: true, length: 1..255
   validates :food_ingredient, length: 1..255
   validates :food_image_url, length: 1..255
+  validates :place_id, presence: true
 
 end

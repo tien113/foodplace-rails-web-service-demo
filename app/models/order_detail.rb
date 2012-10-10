@@ -10,4 +10,6 @@ class OrderDetail < ActiveRecord::Base
   validates :food_price, :presence => true, :length => 1..8
   validates :food_place, :presence => true, :length => 1..255
   
+  default_scope order: 'order_details.created_at ASC'
+  
 end
