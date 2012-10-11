@@ -3,8 +3,8 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <meta charset="UTF-8"> 
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    :all, cache: true %>
+  <%= javascript_include_tag :all, cache: true %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
