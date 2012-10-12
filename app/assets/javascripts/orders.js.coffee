@@ -7,7 +7,7 @@ jQuery ->
           bProcessing: true
           bServerSide: true
           sAjaxSource: $('#orders').data('source')
-          aoColumnDefs: [bSortable: false, aTargets: [4, 5, 6]]
+          aoColumnDefs: [bSortable: false, aTargets: [4]]
           aaSorting: [[2, "desc"]]
           oLanguage:
             sLengthMenu: "_MENU_ records per page"

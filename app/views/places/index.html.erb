@@ -8,14 +8,11 @@
 			<th>Latitude</th>
 			<th>Longitude</th>
 			<th>Address</th>
-			<th>Opening time 1</th>
 			<th>Phone number</th>
 			<th>Email</th>
 			<th>Image url</th>
 		<% if signed_in? %>
-			<th></th>
-			<th></th>
-			<th></th>	
+			<th>Actions</th>
 		<% end %>	
 		</tr>
 	</thead>
@@ -26,14 +23,15 @@
 			<td><%= p.place_lat %></td>
 			<td><%= p.place_log %></td>
 			<td><%= truncate(p.place_address, :length => 15) %></td>
-			<td><%= p.place_opening_time_1 %></td>
 			<td><%= truncate(p.place_phone_number, :length => 8) %></td>
 			<td><%= truncate(p.place_email, :length => 15) %></td>
 			<td><%= truncate(p.place_image_url, :length => 10) %></td>
 		<% if signed_in? %>
-			<td><%= link_to 'Show', p, class: "btn btn-small btn-info" %></td>
-		    <td><%= link_to 'Edit', edit_place_path(p), class: "btn btn-small btn btn-warning" %></td>
-		    <td><%= link_to 'Destroy', p, confirm: 'Are you sure?', method: :delete, class: "btn btn-small btn-danger" %></td>
+			<td>
+				<%= link_to 'Show', p, class: "btn btn-small btn-info" %>
+			    <%= link_to 'Edit', edit_place_path(p), class: "btn btn-small btn btn-warning" %>
+			    <%= link_to 'Destroy', p, confirm: 'Are you sure?', method: :delete, class: "btn btn-small btn-danger" %>
+			</td>
 		<% end %>
 		<% end %>
 		</tr>

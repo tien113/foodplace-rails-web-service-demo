@@ -24,8 +24,8 @@ private
         number_to_currency(order.order_total, unit: "€"),
         h(order.order_date),
         check_box_tag('', '', order.order_done, disabled: true),
-        link_to('Show', order, class: "btn btn-small btn-info"),
-        link_to('Edit', edit_order_path(order), class: "btn btn-small btn btn-warning"),
+        link_to('Show', order, class: "btn btn-small btn-info") + ' ' +
+        link_to('Edit', edit_order_path(order), class: "btn btn-small btn btn-warning") + ' ' +
         link_to('Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger")
       ]
     end

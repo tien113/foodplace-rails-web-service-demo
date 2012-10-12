@@ -10,8 +10,7 @@
 	    <th>Ingredient</th>
 	    <th>Place</th>
 	<% if current_user %>
-	    <th></th>
-	    <th></th>
+	    <th>Actions</th>
 	    <th></th>
 	<% end %>
 	  </tr>
@@ -25,9 +24,11 @@
 		<td><%= truncate(f.food_ingredient, :length => 20) %></td>
 	    <td><%= f.place.place_name %></td>
 	 <% if signed_in? %>
-	    <td><%= link_to 'Show', f, class: "btn btn-small btn-info" %></td>
-	    <td><%= link_to 'Edit', edit_food_path(f), class: "btn btn-small btn btn-warning" %></td>
-	    <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete, class: "btn btn-small btn-danger" %></td>
+	    <td>
+			<%= link_to 'Show', f, class: "btn btn-small btn-info" %>
+		    <%= link_to 'Edit', edit_food_path(f), class: "btn btn-small btn btn-warning" %>
+		    <%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete, class: "btn btn-small btn-danger" %>
+		</td>
 	 <% end %>
 	 <% end %>
 	   </tr>	
