@@ -31,6 +31,10 @@ private
     end
   end
   
+  def searchable_columns
+    c = %w[order_uuid order_date]
+  end
+  
   def orders
     @orders ||= fetch_orders
   end
@@ -39,7 +43,10 @@ private
     orders = Order.order("#{sort_column} #{sort_direction}")
     orders = orders.page(page).per_page(per_page)
     if params[:sSearch].present?
-      orders = orders.where("order_uuid like :search or order_date like :search", search: "%#{params[:sSearch]}%")
+      query = searchable_columns.map do |column|
+        "#{column} ILIKE :search"
+      end.join(" OR ")
+      orders = orders.where(query, search: "%#{params[:sSearch]}%")
     end
     orders   
   end
