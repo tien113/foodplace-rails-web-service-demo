@@ -11,3 +11,5 @@ jQuery ->
           aaSorting: [[2, "desc"]]
           oLanguage:
             sLengthMenu: "_MENU_ records per page"
+          fnRowCallback: (nRow, aData, iDisplayIndex, iDisplayIndexFull) ->
+            $(".dataTables_filter input").attr "placeholder", "Search..."
