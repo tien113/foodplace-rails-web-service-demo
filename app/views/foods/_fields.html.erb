@@ -1,16 +1,11 @@
 <%= render 'shared/error_messages', object: f.object %>
-		
-<%= f.label :food_name, "Name" %>
-<%= f.text_field :food_name %>
-			
-<%= f.label :food_price, "Price" %>
-<%= f.text_field :food_price %>
-		    
-<%= f.label :food_image_url, "Image URL" %>
-<%= f.text_field :food_image_url %>
-		   
-<%= f.label :food_ingredient, "Ingredient" %>
-<%= f.text_area :food_ingredient, rows: 5 %>
-			
-<%= f.label :food_place, "Place" %>
-<%= collection_select(:food, :place_id, Place.all, :id, :place_name, { prompt: false }, { id: 'collection-select' }) %>
+
+<%= f.text_field :food_name, { placeholder: "Name" } %>
+
+<%= f.number_field :food_price, { placeholder: "Price" } %>
+
+<%= f.url_field :food_image_url, { placeholder: "Image URL" } %>
+
+<%= f.text_area :food_ingredient, { placeholder: "Ingredient", rows: 5 } %>
+
+<%= collection_select(:food, :place_id, Place.all, :id, :place_name, { prompt: "Select Place" }, { class: 'span5' }) %>

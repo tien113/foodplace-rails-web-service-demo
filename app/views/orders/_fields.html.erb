@@ -8,6 +8,7 @@
 		    
 <%= f.label :order_date, "Date" %>
 <%= f.text_field :order_date %>
-		   
-<%= f.label :order_done, "Done" %>
-<%= f.check_box :order_done, id: "checkbox" %>
+
+<%= f.label :order_done, class: "checkbox" do %>
+	<%= f.check_box :order_done %> Done
+<% end %>
